@@ -38,18 +38,26 @@ $(document).ready(function() {
         };
 
 
+ 
+  //toggle
   $('.artwork').on('click',function(){
-    
+    // if($(this).attr('data-click-state') == 1) {
+    //     $(this).attr('data-click-state', 0)
+    //     $(this).css('background-color', 'transparent')
+    //     } else {
+    //     $(this).attr('data-click-state', 1)
+    //     $(this).css('background-color', 'orange')
+    //     }
         $('#info').css('margin-left','-82vw');
         $('.goback').show();
+        // $('#artwork').show();
+        // $(body).css('margin-left','-80px');
 
   });
 
   $('.goback').on('click', function() {
-
     $('#info').css('margin-left','2rem');
     $(this).hide();
-
   });
 
 });

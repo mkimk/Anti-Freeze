@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Base styles: opinionated defaults in Boostrap
+   ========================================================================== */
+html { width:100%;height:100%;}
+body {
+    width:100%;
+    height: 100%;
+    /* overflow-x:hidden; */
+    padding:0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    letter-spacing: -0.01rem;
+}
+
+li {list-style: none;}
+
+a {cursor: pointer;}
+
+label {width:100%; padding-bottom:2rem; border-bottom: 2px solid;  cursor: pointer;}
+
+iframe { border:0; width:100%; height: 100%;}
+
+
+#container {
+    display:flex;
+    /* justify-content: center; */
+    height:100vh;
+    width:100%;
+    position:fixed, 0px null null 0px;
+    padding:0;
+    margin:0;
+}
+
+section {
+    flex:none;
+    will-change: transform;
+    height:100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding:0 2rem;
+}
+
+section .scroll {
+    position: absolute;top: 0px;bottom: 0px;left: 0px;right: -10px;overflow-y: auto;}
+
+#info {
+    min-width: 80vw;
+    max-width: 80vw;
+    margin: 0 2rem;
+    transition: .3s ease-in-out;   
+}
+
+#artist {
+    width:15vw;
+    max-width:130px;
+    min-width:100px;
+    flex-direction: column;
+    background-color:white;
+    /* border: solid 1px blue; */
+}
+#artwork {
+    width:-webkit-fill-available;
+    height:100vh;
+    top:0;
+    left:0;
+    max-width: 90vw;
+    height: -webkit-fill-available;
+}
+
+.goback {
+    display:none;
+    position:relative;
+    top:0;
+    padding-bottom:2rem;
+    cursor: pointer;
+
+}
+
+/* ==========================================================================
+    Menu Structure
+   ========================================================================== */
+
+
+
+
+/* label:nth-child(1){
+    margin:0;
+} */
+
+/* [class*="col-"] {height:100%;} */
+
+
+ 
+
+/* ==========================================================================
+    Media Query
+   ========================================================================== */
+
+   @media screen and (max-width: 768px){
+    body {font-size:1.2rem; line-height: 1.5rem;}  
+   }

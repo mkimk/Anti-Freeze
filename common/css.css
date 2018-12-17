@@ -36,11 +36,8 @@ body {
 
 li {list-style: none;}
 
-a {
-    cursor: pointer; 
-    /* color: #00dcff; */
-    color: black;
-
+a { cursor: pointer; color: black;}
+a:hover {color: white; text-decoration: none;
 }
 
 label {width:100%; padding-bottom:2rem; cursor: pointer;}
@@ -75,6 +72,50 @@ section {
 
 }
 
+.modal-backdrop
+{
+    opacity:1 !important;
+    background-color:#ffedf1;
+}
+
+button.close {
+    padding: 2rem;
+}
+.modal-content {
+    /* position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto; */
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+}
+/* .modal-lg {
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+@media (min-width: 992px){
+.modal-lg {
+    max-width: 100%;
+}
+}
+
+@media (min-width: 576px)
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+} */
+
 /* ==========================================================================
     Menu Structure
    ========================================================================== */
@@ -84,7 +125,7 @@ section {
 
 #top {
     display: none;
-    /* font-size:2.2rem; */
+    font-size:2.2rem;
     position: fixed; top: 0px; width: 100%; height:auto; 
     background-image: linear-gradient(to top, rgba(255,237,241,0),  rgba(255,237,241,0.9), rgba(255,237,241,1));
     padding:1rem; 
@@ -128,6 +169,10 @@ section {
 }
 
 
+.caption {
+    font-size:2rem;
+    line-height: 2.2rem;
+}
 
 
 
@@ -137,7 +182,8 @@ section {
     max-width: 50vw; 
     /* max-width: 50vw; 
     min-width:12vw; */
-    overflow: visible;
+    /* overflow: visible; */
+    min-width: 200px;
 }
 #artwork {
     display:none;
@@ -162,10 +208,12 @@ section {
 
 .thumb {
     padding: 0 2rem 2rem 0;
-    max-width:500px;
+    max-width:200px;
     transition: ease-in-out;
+    min-width:200px;
+    /* width:100px; */
     /* display: none; */
-    /* min-width:100px; */
+
     /* width:100%; */
 }
 

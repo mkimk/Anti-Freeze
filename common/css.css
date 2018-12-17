@@ -70,6 +70,7 @@ section {
     padding:0 2rem;
     transition:1s ease;  
     font-variation-settings: 'wdth' var(--text-axis); 
+    /* border:solid 1px red; */
 
 
 }
@@ -83,7 +84,7 @@ section {
 
 #top {
     display: none;
-    font-size:2.2rem;
+    /* font-size:2.2rem; */
     position: fixed; top: 0px; width: 100%; height:auto; 
     background-image: linear-gradient(to top, rgba(255,237,241,0),  rgba(255,237,241,0.9), rgba(255,237,241,1));
     padding:1rem; 
@@ -163,7 +164,7 @@ section {
     padding: 0 2rem 2rem 0;
     max-width:500px;
     transition: ease-in-out;
-    display: none;
+    /* display: none; */
     /* min-width:100px; */
     /* width:100%; */
 }

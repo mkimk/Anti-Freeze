@@ -57,18 +57,18 @@ $(document).on("click mousemove","#container",function(e){
             $("#info").addClass("zoom-in").removeClass("zoom-out");
             $("#artist").addClass("zoom-out").removeClass("zoom-in");
             $("#top").addClass("zoom-in").removeClass("zoom-out");
-            $(".thumb").css("min-width","300px");
+            // $(".thumb").css("min-width","300px");
          } if (widthInfo < middle || widthInfo === middle) {
             $("#info").addClass("zoom-out").removeClass("zoom-in");
             $("#artist").addClass("zoom-in").removeClass("zoom-out");
-            $("#top").addClass("zoom-in").removeClass("zoom-out");
-            $(".thumb").css("min-width","500px");
+            $("#top").addClass("zoom-out").removeClass("zoom-in");
+            // $(".thumb").css("min-width","500px");
          } 
          else {
         $("#info").addClass("zoom-in").removeClass("zoom-out");
         $("#artist").addClass("zoom-out").removeClass("zoom-in");
         $("#top").addClass("zoom-in").removeClass("zoom-out");
-        $(".thumb").css("min-width","300px");
+        // $(".thumb").css("min-width","300px");
     }
 });
 

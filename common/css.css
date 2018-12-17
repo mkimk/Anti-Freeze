@@ -1,6 +1,17 @@
 /* ==========================================================================
    Base styles: opinionated defaults in Boostrap
    ========================================================================== */
+@font-face {
+    font-family: "KairosSans_variable";
+    src: url("./KairosSans_Variable.ttf") format("truetype");
+    /* src: url('./Gingham.woff2') format('woff2'),
+       url('./Gingham.woff') format('woff');  */
+}
+
+ /* weight range is 300 to 700 */
+  /* width range is 1 to 150 */
+
+
 html { width:100%;height:100%;}
 body {
     width:100%;
@@ -8,18 +19,29 @@ body {
     /* overflow-x:hidden; */
     padding:0;
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    color:black;
+    font-family: 'KairosSans_variable', sans-serif;
+   color:black;
+   background-color:#ffedf1;
+
+   /* background-image: linear-gradient(to top,rgb(0, 0, 0, 1), rgb(0, 0, 0, 0.8) );  */
     font-size: 1.8rem;
     line-height: 2.1rem;
     letter-spacing: -0.01rem;
     transition: .3s ease-in-out;   
+    font-variation-settings: 'wght' 330;
+
 
 }
 
+
 li {list-style: none;}
 
-a {cursor: pointer;}
+a {
+    cursor: pointer; 
+    /* color: #00dcff; */
+    color: black;
+
+}
 
 label {width:100%; padding-bottom:2rem; cursor: pointer;}
 
@@ -29,10 +51,12 @@ nav, .navbar { padding:0;}
 
 #container {
     display:flex;
+    position: relative;
+
     /* justify-content: center; */
     height:100vh;
     width:100%;
-    position:fixed, 0px null null 0px;
+    /* position:fixed, 0px null null 0px; */
     padding:0;
     margin:0;
 }
@@ -44,10 +68,11 @@ section {
     overflow-y: auto;
     overflow-x: hidden;
     padding:0 2rem;
-    transition:1s ease;   
+    transition:1s ease;  
+    font-variation-settings: 'wdth' var(--text-axis); 
+
+
 }
-
-
 
 /* ==========================================================================
     Menu Structure
@@ -56,21 +81,62 @@ section {
    section .scroll {
     position: absolute;top: 0px;bottom: 0px;left: 0px;right: -9px; padding-right: 9px; overflow-y: auto;}
 
+#top {
+    display: none;
+    font-size:2.2rem;
+    position: fixed; top: 0px; width: 100%; height:auto; 
+    background-image: linear-gradient(to top, rgba(255,237,241,0),  rgba(255,237,241,0.9), rgba(255,237,241,1));
+    padding:1rem; 
+    padding-bottom:3rem;
+    z-index: 200;
+    text-align: center;
+}
 #info {
-    min-width: 50vw;
-    max-width: 80vw;
     margin: 0 2rem;
     transition: 1s ease;   
-    font-size:2rem;
-    line-height: 2.5rem;
-    
+    /* font-size:2rem;
+    line-height: 2.5rem;  */
+    max-width: 80vw; 
+    min-width: 40vw;
+
 }
 
+.test {
+    position:fixed;
+    top:20px;
+    border:green;
+    width: 10px;
+    height:10px;
+    background-color: green;
+    z-index:200;
+}
+
+.zoom-in{
+    font-variation-settings: 'wght' 330, 'wdth' 125;
+   font-size:3.3rem;
+   line-height: 3.5rem;
+
+}
+
+.zoom-out {
+    font-variation-settings: 'wght' 330, 'wdth' 90;
+
+    font-size:2rem;
+    line-height: 2.2rem;
+
+}
+
+
+
+
+
 #artist {
-    min-width: 20vw;
-    max-width: 50vw;
     flex-direction: column;
-    background-color:white;
+    background-color:inherit;
+    max-width: 50vw; 
+    /* max-width: 50vw; 
+    min-width:12vw; */
+    overflow: visible;
 }
 #artwork {
     display:none;
@@ -95,9 +161,11 @@ section {
 
 .thumb {
     padding: 0 2rem 2rem 0;
-    max-width:300px;
-    min-width:100px;
-    width:50%;
+    max-width:500px;
+    transition: ease-in-out;
+    display: none;
+    /* min-width:100px; */
+    /* width:100%; */
 }
 
 
@@ -115,5 +183,6 @@ section {
    ========================================================================== */
 
    @media screen and (max-width: 768px){
-    body {font-size:1.2rem; line-height: 1.5rem;}  
+    body {font-size:1.2rem; line-height: 1.5rem;font-variation-settings: 'wght' 375;}  
+    
    }

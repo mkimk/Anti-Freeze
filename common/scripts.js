@@ -42,29 +42,33 @@ $(document).ready(function() {
 // 2 columns width change
 $(document).on("click mousemove","#container",function(e){ 
     var x = e.clientX;
-    $("#info").css("width", screen.width - x + "px");
+    $("#info").css("width", window.innerWidth - x + "px");
     var widthInfo = $('#info').width();
+    var middle = window.innerWidth / 2
 
-    $("#artist").css("width", x + "px" );
+    $("#artist").css("width", x  - 100 + "px" );
+
+    $(".test").css ("left", middle);
 
     // if (!widthInfo < 960 || widthInfo > 790) {
     //     $("#info").css("font-size", widthInfo - 750 + "px");
     //  } 
-     if (widthInfo > 960  || widthInfo === 960) {
-            $("#info").css("font-size","3rem");
-            $("#info").css("line-height","3.2rem");
-            $(".extraworks").hide();
-         } if (widthInfo < 790 || widthInfo === 790) {
-            $("#info").css("font-size", "2rem");
-            $("#info").css("line-height","2.2rem");
-            $(".extraworks").show();
+     if (widthInfo > middle || widthInfo === middle) {   
+            $("#info").addClass("zoom-in").removeClass("zoom-out");
+            $("#artist").addClass("zoom-out").removeClass("zoom-in");
+            $("#top").addClass("zoom-in").removeClass("zoom-out");
+            $(".thumb").css("min-width","300px");
+         } if (widthInfo < middle || widthInfo === middle) {
+            $("#info").addClass("zoom-out").removeClass("zoom-in");
+            $("#artist").addClass("zoom-in").removeClass("zoom-out");
+            $("#top").addClass("zoom-in").removeClass("zoom-out");
+            $(".thumb").css("min-width","500px");
          } 
          else {
-        $("#info").css("font-size", "3rem");
-        $("#info").css("line-height","3.2rem");
-        $(".extraworks").hide();
-
-
+        $("#info").addClass("zoom-in").removeClass("zoom-out");
+        $("#artist").addClass("zoom-out").removeClass("zoom-in");
+        $("#top").addClass("zoom-in").removeClass("zoom-out");
+        $(".thumb").css("min-width","300px");
     }
 });
 
@@ -129,11 +133,15 @@ $('nav.navbar a, .scrollTop').click(function(event){
             window.location.hash = hash;
             $(".navbar-collapse").collapse('hide');	
             $('.header').addClass('active');	
+            $("#top").show();
+
             });
                     
             // Collapse Navbar for mobile view
             $(".navbar-collapse").collapse('hide');	
-            $('.header').addClass('active');		
+            $('.header').addClass('active');	
+            $("#top").show();
+	
         }
 
     });

@@ -43,35 +43,54 @@ $(document).ready(function() {
 
 $(document).on("click mousemove","#container",function(e){ 
     var x = e.clientX;
+    // var y = e.clientY;
     $("#info").css("width", window.innerWidth - x + "px");
     var widthInfo = $('#info').width();
-    var middle = window.innerWidth / 2
+    var middlex = window.innerWidth / 2;
+    var middley = window.innerHeight / 2;
+
 
     $("#artist").css("width", x  - 100 + "px" );
+    $(".dot").css ("position", "fixed");
 
-    $(".test").css ("left", middle);
+    // $(".dot").css ("left", middlex);
+    // $(".dot").css ("top", middley);
 
     // if (!widthInfo < 960 || widthInfo > 790) {
     //     $("#info").css("font-size", widthInfo - 750 + "px");
     //  } 
-     if (x < middle || x === middle) {   
+     if (x < middlex || x === middlex) {   
             $("#info").addClass("zoom-in").removeClass("zoom-out");
             $("#artist").addClass("zoom-out").removeClass("zoom-in");
             $("#top").addClass("zoom-in").removeClass("zoom-out");
-            $(".thumb").css("width","100%");
+            $(".landscape").css("max-width","250px");
+            $(".landscape-wide").css("max-width","300px");
+            $(".portrait").css("max-height","250px");
+            $(".square").css("max-height","185px");
 
-         } if (x > middle ) {
+
+
+
+         } if (x > middlex ) {
             $("#info").addClass("zoom-out").removeClass("zoom-in");
             $("#artist").addClass("zoom-in").removeClass("zoom-out");
             $("#top").addClass("zoom-out").removeClass("zoom-in");
-            $(".thumb").css("width","400px");
+            $(".landscape").css("max-width","500px");
+            $(".landscape-wide").css("max-width","600px");
+            $(".portrait").css("max-height","500px");
+            $(".square").css("max-height","400px");
+
 
          } 
          else {
         $("#info").addClass("zoom-in").removeClass("zoom-out");
         $("#artist").addClass("zoom-out").removeClass("zoom-in");
         $("#top").addClass("zoom-in").removeClass("zoom-out");
-        $(".thumb").css("width","100%");
+        $(".landscape").css("max-width","250px");
+        $(".landscape-wide").css("max-width","300px");
+        $(".portrait").css("max-height","250px");
+        $(".square").css("max-height","185px");
+
 
     }
 
@@ -145,24 +164,24 @@ $('nav.navbar a, .scrollTop').click(function(event){
                 $(hash).removeClass("focus");
             }, 2000);			
             
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area (the speed of the animation)
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area (the speed of the animation)
             $('html, body').animate({
                 scrollTop: $(hash).offset().top - 10
             }, 600, function(){
                 
             // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
-            $(".navbar-collapse").collapse('hide');	
+            // $(".navbar-collapse").collapse('hide');	
             $('.header').addClass('active');	
-            $("#top").show();
+            // $("#top").show();
 
             });
                     
             // Collapse Navbar for mobile view
-            $(".navbar-collapse").collapse('hide');	
+            // $(".navbar-collapse").collapse('hide');	
             $('.header').addClass('active');	
-            $("#top").show();
+            // $("#top").show();
 	
         }
 

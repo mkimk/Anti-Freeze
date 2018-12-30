@@ -4,6 +4,8 @@
 @font-face {
     font-family: "KairosSans_variable";
     src: url("./KairosSans_Variable.ttf") format("truetype");
+    font-weight: 250 900;
+    
     /* src: url('./Gingham.woff2') format('woff2'),
        url('./Gingham.woff') format('woff');  */
  /* weight range is 300 to 700 */
@@ -22,7 +24,11 @@
     src: url('NotoSansCJKkr-Regular.otf');
 }
 
-
+@supports (font-variation-settings: 'wght' 330) {
+    *:lang(EN) {
+       font-family: "KairosSans_variable_Light";
+    }
+   }
 
 html { width:100%;height:100%;}
 body {
@@ -43,6 +49,7 @@ body {
     line-height: 2.1rem;
     letter-spacing: -0.01rem;
     font-variation-settings: 'wght' 330;
+    font-weight: Light;
     /* animation-name: anti-freeze; */
     transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -76,6 +83,8 @@ body {
 *:lang(EN) {
     font-family: 'KairosSans_variable', sans-serif;
     letter-spacing: -0.01rem;
+    font-weight: 330;
+
 }
 
 *:lang(KR) {
@@ -119,7 +128,7 @@ button::before {
 }
     
 button:hover::before {--size: 5em; } 
-h1 {    font-variation-settings: 'wght' 330, 'wdth' 125;}
+h1 { font-variation-settings: 'wght' 330, 'wdth' 125;}
 h3 { font-size:2rem; line-height: 2.2rem; }
 h4 { font-size:1.5rem; line-height: 1.8rem; }
 h5, .modal-text{
@@ -197,14 +206,14 @@ h5, .modal-text{
     text-align: center;
     }
 
-    #cover .detail {
+   .detail {
     width:100%;
     font-size:2rem;
     position: absolute;
     text-align: center;
     bottom:3rem;
     }
-    #lang {position: fixed; right: 3.2em; top: 0.7em; z-index: 300; font-size:1.5rem;}
+    #lang {position: fixed; right: 3.5em; top: 0.7em; z-index: 300; font-size:1.5rem;}
     #home {position: fixed; width:50px; right: 0.5em; top: 0.5em; z-index: 300;}
 
     #title {
@@ -254,8 +263,9 @@ h5, .modal-text{
         top: 0px;
         bottom: 0px;
         left: 0px;
-        right: -9px; 
+        right: -15px; 
         overflow-y: auto; 
+        padding-right: 20px;
         /* padding:1.75rem 0 9px 0; */
         padding: 2.75rem 1rem 2.75rem 1rem;
     }
@@ -271,6 +281,7 @@ h5, .modal-text{
         /* position:fixed, 0px null null 0px; */
         padding:0;
         margin:0;
+        z-index:300;
     }
 
     section {
@@ -479,9 +490,9 @@ h5, .modal-text{
 
 .modal-close {
     position: absolute;
-    top: 2rem;
-    left: 0rem;
-    width:35px;
+    top: 3rem;
+    left: 1rem;
+    width:24px;
     background: url(../img/close.svg);
     background-repeat: no-repeat;
     background-size: 100%;

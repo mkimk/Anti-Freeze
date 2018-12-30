@@ -5,21 +5,7 @@
 /*  =========================================================================
     Cover: Unblur Mask
     ==========================================================================   */
-    $(document).ready(function(){
-        $('#clip-circle').on('mousemove', function(e) {
-            var xPos = e.clientX;
-            var yPos = e.clientY;
-            // console.log(xPos, yPos);
-            // $('#anti-freeze').css({
-            //   'top': yPos,
-            //   'left': xPos
-            // });
-            $(this).css({
-                // 'clip-path': 'circle(60px at center)',
-                'clip-path': 'circle(60px at' + ' ' + xPos + 'px ' +  yPos + 'px)'
-            });
-        });    
-    });
+   
 
     var distance = $('.detail').offset().top,
     $window = $(window);

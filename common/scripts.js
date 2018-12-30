@@ -9,15 +9,24 @@
 
     var distance = $('.detail').offset().top,
     $window = $(window);
+    var scrollBottom = $(window).scrollTop() + $(window).height() - 20;
 
     $window.scroll(function() {
-        if ( $window.scrollTop() >= distance ) {
+        if ( scrollBottom >= distance ) {
+            // $('#title').css('filter','blur(15px)');
             $('#clip-circle').fadeOut();
+           
         } else {
-            $('#clip-circle').fadeIn();
-
+            $('#title').css('filter','blur(0px)');
         }
+        // if ( distance > $window.innerHeight) {
+        //     $('#clip-circle').fadeIn();
+        // }
     });
+
+
+
+
 
 /*  =========================================================================
     Cover: Scroll transition
@@ -134,7 +143,7 @@
                 $(".landscape").css("max-width","250px");
                 $(".landscape-wide").css("max-width","300px");
                 $(".portrait").css("max-height","250px");
-                $(".square").css("max-height","185px");
+                $(".square").css("max-width","185px");
 
 
 
@@ -146,7 +155,7 @@
                 $(".landscape").css("max-width","500px");
                 $(".landscape-wide").css("max-width","600px");
                 $(".portrait").css("max-height","500px");
-                $(".square").css("max-height","400px");
+                $(".square").css("max-width","380px");
 
 
             } 
@@ -157,7 +166,7 @@
             $(".landscape").css("max-width","250px");
             $(".landscape-wide").css("max-width","300px");
             $(".portrait").css("max-height","250px");
-            $(".square").css("max-height","185px");
+            $(".square").css("max-width","185px");
         }
     });
 

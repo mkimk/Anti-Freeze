@@ -4,31 +4,10 @@
 @font-face {
     font-family: "KairosSans_variable";
     src: url("./KairosSans_Variable.ttf") format("truetype");
-    font-weight: 250 900;
-    
-    /* src: url('./Gingham.woff2') format('woff2'),
-       url('./Gingham.woff') format('woff');  */
- /* weight range is 300 to 700 */
-  /* width range is 1 to 150 */
-}
-
-@font-face {
-    font-family: 'NotoSans-Light'; 
-    src: url('NotoSansCJKkr-Light.otf');
+    /* weight range is 250 to 900, width range is 75 to 125 */
 }
 
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400');
-
-@font-face {
-    font-family: 'NotoSans-Regular'; 
-    src: url('NotoSansCJKkr-Regular.otf');
-}
-
-@supports (font-variation-settings: 'wght' 330) {
-    *:lang(EN) {
-       font-family: "KairosSans_variable_Light";
-    }
-   }
 
 html { width:100%;height:100%;}
 body {
@@ -129,13 +108,13 @@ button::before {
     
 button:hover::before {--size: 5em; } 
 h1 { font-variation-settings: 'wght' 330, 'wdth' 125;}
-h3 { font-size:2rem; line-height: 2.2rem; }
-h4 { font-size:1.5rem; line-height: 1.8rem; }
+h3 { font-size:2rem; line-height: 2.5rem; }
+h4 { font-size:1.5rem; line-height: 2rem; }
 h5, .modal-text{
     word-spacing: 0.15rem;
     letter-spacing: -0.15rem;
     font-size: 1rem;
-    line-height: 1.2rem;
+    line-height: 1.3rem;
 }
 .modal-text {
     padding-bottom:2rem;
@@ -225,6 +204,7 @@ h5, .modal-text{
         position:fixed;
         width:100%;
         filter:blur(0px);
+        font-variation-settings: 'wdth' 125, 'wght' 270;
     }
 
     #clip-circle {
@@ -329,7 +309,7 @@ h5, .modal-text{
     .zoom-in{
         font-variation-settings: 'wght' 330, 'wdth' 125;
         font-size:3.3rem;
-        line-height: 3.5rem;
+        line-height: 3.7rem;
     }
 
     .zoom-out {
@@ -407,6 +387,7 @@ h5, .modal-text{
 
     .landscape { min-width:200px; max-width:400px; }
     .portrait { min-height:200px; max-height:400px; /* width: min-content; */ }
+    .square {max-width:400px;}
 
                         .stack {
                             position: relative;

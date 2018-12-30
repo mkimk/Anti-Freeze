@@ -202,7 +202,7 @@ h5, .modal-text{
     font-variation-settings: 'wdth' 125, 'wght' 330 ;
     /* filter: blur(4px); */
     height: 100vh;
-    z-index: 1000;
+    z-index: 200;
     text-align: center;
     }
 
@@ -237,7 +237,7 @@ h5, .modal-text{
         font-size: 10rem;
         font-variation-settings: 'wdth' 125, 'wght' 330 ;
         text-align: center;
-        z-index:1200;
+        z-index:250;
         background:#ffedf1 ;
         /* clip-path: circle(60px at center); */
     }
@@ -552,7 +552,7 @@ button.close::before {
 .modal-content img{
     width:100%;
     height:auto;
-    padding-bottom:2rem;
+    padding:0 0rem 6rem 3rem;
 }
 
 .modal-lg {

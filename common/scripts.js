@@ -21,10 +21,24 @@
         });    
     });
 
+    var distance = $('.detail').offset().top,
+    $window = $(window);
+
+    $window.scroll(function() {
+        if ( $window.scrollTop() >= distance ) {
+            $('#clip-circle').fadeOut();
+        } else {
+            $('#clip-circle').fadeIn();
+
+        }
+    });
+
 /*  =========================================================================
     Cover: Scroll transition
     ==========================================================================   */
-
+    
+    
+   
     $('nav.navbar a, .scrollTop').click(function(event){
         // Make sure this.hash has a value before overriding default behavior
             if (this.hash !== "") {
@@ -55,8 +69,6 @@
                 // window.location.hash = hash;
                 // $(".navbar-collapse").collapse('hide');  
                 // $('.header').addClass('active');    
-                $('#title').css('filter', 'blur(13px)');
-                $('#anti-freeze').css('display','none');
                 // $("#top").show();
     
                 });
@@ -67,7 +79,6 @@
                 // $("#top").show();
         }
     });
-
 
 /*  =========================================================================
     Scroll speed setting for the two columns

@@ -7,17 +7,19 @@
     ==========================================================================   */
    
 
-    var distance = $('.detail').offset().top,
+    var distance = $('.detail').offset().top;
     $window = $(window);
     var scrollBottom = $(window).scrollTop() + $(window).height() - 20;
+    var bottom_of_element = distance + $(".detail").outerHeight();
+
 
     $window.scroll(function() {
         if ( scrollBottom >= distance ) {
             // $('#title').css('filter','blur(15px)');
             $('#clip-circle').fadeOut();
            
-        } else {
-            $('#title').css('filter','blur(0px)');
+        } if (bottom_of_element <= distance) {
+            $('#clip-circle').fadIn();
         }
         // if ( distance > $window.innerHeight) {
         //     $('#clip-circle').fadeIn();
@@ -112,61 +114,47 @@
                 forcedScroll = true;
                 $el.scrollTop(scrollTopPos);
             }
+             //stop the scroll function for mobile view
+
+             if ((screen.width < 1024)) {
+                performScroll.stop();
+                setScrollTopFromPercent.stop();
+            }
         };
 
 /*  =========================================================================
     2 columns with a responsive width
     ==========================================================================   */
 
-    $(document).on("click mousemove","#container",function(e){ 
+    $(document).on("click mousemove","#anti-freeze",function(e){ 
         var x = e.clientX;
-        // var y = e.clientY;
-        $("#info").css("width", window.innerWidth - x + "px");
-        var widthInfo = $('#info').width();
         var middlex = window.innerWidth / 2;
-        var middley = window.innerHeight / 2;
-
+        $("#info").css("width", window.innerWidth - x + "px");
 
         $("#artist").css("width", x  - 100 + "px" );
-        // $(".dot").css ("position", "fixed");
-
-        // $(".dot").css ("left", middlex);
-        // $(".dot").css ("top", middley  - 350);
-
-        // if (!widthInfo < 960 || widthInfo > 790) {
-        //     $("#info").css("font-size", widthInfo - 750 + "px");
-        //  } 
+       
         if (x < middlex || x === middlex) {   
                 $("#info").addClass("zoom-in").removeClass("zoom-out");
                 $("#artist").addClass("zoom-out").removeClass("zoom-in");
                 $("#top").addClass("zoom-in").removeClass("zoom-out");
                 $(".landscape").css("max-width","250px");
-                $(".landscape-wide").css("max-width","300px");
+                $(".landscape-wide").css("max-width","310px");
                 $(".portrait").css("max-height","250px");
                 $(".square").css("max-width","185px");
-
-
-
-
-            } if (x > middlex ) {
-                $("#info").addClass("zoom-out").removeClass("zoom-in");
-                $("#artist").addClass("zoom-in").removeClass("zoom-out");
-                $("#top").addClass("zoom-out").removeClass("zoom-in");
-                $(".landscape").css("max-width","500px");
-                $(".landscape-wide").css("max-width","600px");
-                $(".portrait").css("max-height","500px");
-                $(".square").css("max-width","380px");
-
-
-            } 
-            else {
-            $("#info").addClass("zoom-in").removeClass("zoom-out");
-            $("#artist").addClass("zoom-out").removeClass("zoom-in");
-            $("#top").addClass("zoom-in").removeClass("zoom-out");
-            $(".landscape").css("max-width","250px");
-            $(".landscape-wide").css("max-width","300px");
-            $(".portrait").css("max-height","250px");
-            $(".square").css("max-width","185px");
+        } if (x > middlex ) {
+            $("#info").addClass("zoom-out").removeClass("zoom-in");
+            $("#artist").addClass("zoom-in").removeClass("zoom-out");
+            $(".landscape").css("max-width","510px");
+            $(".landscape-wide").css("max-width","600px");
+            $(".portrait").css("max-height","500px");
+            $(".square").css("max-width","380px");
+        } else {
+        $("#info").addClass("zoom-in").removeClass("zoom-out");
+        $("#artist").addClass("zoom-out").removeClass("zoom-in");
+        $(".landscape").css("max-width","250px");
+        $(".landscape-wide").css("max-width","300px");
+        $(".portrait").css("max-height","250px");
+        $(".square").css("max-width","185px");
         }
     });
 
@@ -174,12 +162,15 @@
         WidthVariation.stop();
     };
 
+    if ((screen.width<1024)) { 
+        $("#info").css('width','100%'); 
+        $("#artist").css('width','100%');       
+    };
+
     setInterval(function(){
         var artwork = $("#artwork");
         if(artwork.is(":hover")) {
             $("#info").css("width", window.innerWidth - x + "px");
-
-        
         }
         else {
         }

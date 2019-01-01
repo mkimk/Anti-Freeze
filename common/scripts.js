@@ -1,6 +1,40 @@
 /*  =========================================================================
     Detact browser and switch the variable font - WIP
     ==========================================================================   */
+
+    // // var browser_name = '';
+    //     isIE = /*@cc_on!@*/false || !!document.documentMode;
+    //     isEdge = !isIE && !!window.StyleMedia;
+    //     if(navigator.userAgent.indexOf("Chrome") != -1 && !isEdge)
+    //     {
+    //         $('body').css('font-family', '"KairosSans_variable", sans-serif');
+
+    //     }
+    //     else if(navigator.userAgent.indexOf("Safari") != -1 && !isEdge)
+    //     {
+    //         $('body').css('font-family', '"KairosSans_Light", sans-serif');
+    //     }
+    //     else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    //     {
+    //         $('body').css('font-family', '"KairosSans_Light", sans-serif');
+
+    //     }
+    //     else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    //     {
+    //         $('body').css('font-family', '"KairosSans_Light", sans-serif');
+    //     }
+    //     else if(isEdge)
+    //     {
+    //         $('body').css('font-family', '"KairosSans_Light", sans-serif');
+    //     }
+    //     else 
+    //     {
+    //         $('body').css('font-family', '"KairosSans_variable", sans-serif');
+
+    //     }
+        // $('html').addClass(browser_name);
+
+
     var browser = function() {
         // Return cached result if avalible, else get result then cache it.
         if (browser.prototype._cachedResult)
@@ -30,18 +64,19 @@
         if(isFirefox){
             $('body').css('font-family', '"KairosSans_Light", sans-serif');
         }
-        // return browser.prototype._cachedResult =
-        //     isOpera ? 'Opera' :
-        //     isFirefox ? $('body').css('font-family', '"KairosSans_Light", sans-serif') :
-        //     isSafari ? 'Safari' :
-        //     isChrome ? 'Chrome' :
-        //     isIE ? 'IE' :
-        //     isEdge ? 'Edge' :
-        //     isBlink ? 'Blink' :
-        //     "Don't know";
+        return browser.prototype._cachedResult =
+            isOpera ? 'Opera' :
+            isFirefox ? $('body').css('font-family', '"KairosSans_Light", sans-serif') :
+            isSafari ? 'Safari' :
+            isChrome ? 'Chrome' :
+            isIE ? 'IE' :
+            isEdge ? 'Edge' :
+            isBlink ? 'Blink' :
+            "Don't know";
     };
   
-   browser();
+//    browser();
+   console.log(browser());
 
 
 /*  =========================================================================
@@ -179,6 +214,10 @@
 /*  =========================================================================
     Variable column width based on mousemove - WIP
     ==========================================================================   */
+
+     
+  
+
         function variableWidth(){
                 $(document).on("click mousemove","#anti-freeze",function(e){ 
                     var x = e.clientX;
@@ -187,42 +226,53 @@
                     $("#artist").css("width", x  - 100 + "px" );
 
                     if (x < middlex || x === middlex) {   
-                            $("#info").addClass("zoom-in").removeClass("zoom-out");
-                            $("#artist").addClass("zoom-out").removeClass("zoom-in");
-                            $("#top").addClass("zoom-in").removeClass("zoom-out");
-                            $(".landscape").addClass("img-width-md");
-                            $(".landscape-wide").addClass("img-width-lg"); 
-                            $(".portrait").addClass("img-height-md"); 
-                            $(".square").addClass("img-height-sm");         
+                        $("#info").addClass("zoom-in").removeClass("zoom-out");
+                        $("#artist").addClass("zoom-out").removeClass("zoom-in");
+                        $("#top").addClass("zoom-in").removeClass("zoom-out");
+                        $(".landscape").addClass("img-width-md").removeClass("img-width-xlg");
+                        $(".landscape-wide").addClass("img-width-lg").removeClass("img-width-xxlg"); 
+                        $(".portrait").addClass("img-height-md").removeClass("img-height-xlg"); 
+                        $(".square").addClass("img-height-sm").removeClass("img-height-md");         
                     } if (x > middlex ) {
                         $("#info").addClass("zoom-out").removeClass("zoom-in");
                         $("#artist").addClass("zoom-in").removeClass("zoom-out");
-                        $(".landscape").addClass("img-width-xlg");
-                        $(".landscape-wide").addClass("img-width-xxlg"); 
-                        $(".portrait").addClass("img-height-xlg"); 
-                        $(".square").addClass("img-height-md"); 
+                        $(".landscape").addClass("img-width-xlg").removeClass("img-width-md");
+                        $(".landscape-wide").addClass("img-width-xxlg").removeClass("img-width-lg"); 
+                        $(".portrait").addClass("img-height-xlg").removeClass("img-height-md"); 
+                        $(".square").addClass("img-height-md").removeClass("img-height-sm"); ; 
                     }   else {
                         $("#info").addClass("zoom-in").removeClass("zoom-out");
                         $("#artist").addClass("zoom-out").removeClass("zoom-in");
-                        $(".landscape").addClass("img-width-md");
-                        $(".landscape-wide").addClass("img-width-lg"); 
-                        $(".portrait").addClass("img-height-md"); 
-                        $(".square").addClass("img-height-sm");      
+                        $(".landscape").addClass("img-width-md").removeClass("img-width-xlg");
+                        $(".landscape-wide").addClass("img-width-lg").removeClass("img-width-xxlg"); 
+                        $(".portrait").addClass("img-height-md").removeClass("img-height-xlg"); 
+                        $(".square").addClass("img-height-sm").removeClass("img-height-md");       
                     } 
                 });
         
             }
-        variableWidth();
+            variableWidth();
+        }); 
 
-            // $(window).resize(function(e) {
-            //     if (1024 < $(window).width) {
-            //         variableWidth();
-            //     } if (1024 >= $(window).width) {
-            //         variableWidth.stop();
-            //     }
-            // }); 
-  
+     
+      
             
+         $(window).resize(function(e) {
+                if (1024 < $(window).width) {
+                    $("#artist").show(); 
+                    $("#info").show();
+                    $("#artist-mobile").hide();
+                    $("#info-mobile").hide();
+                    console.log("saysomething");
+   
+                } if (1024 >= $(window).width) {
+                    $("#artist").hide(); 
+                    $("#info").hide();
+                    $("#artist-mobile").show();
+                    $("#info-mobile").show();
+
+                }
+        });    
 
                   
             // var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
@@ -250,6 +300,5 @@
 
 
 
-});
 
 

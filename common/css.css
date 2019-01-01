@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: "KairosSans_Light";
-    src: url("./AbsaraHeadOT-Regular.ttf") format("truetype");
+    src: url("./BauWeb.otf") format("opentype");
 }
 
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400');
@@ -372,7 +372,18 @@ h5, .modal-text{
         line-height: 3.5rem;
         z-index:220;
     }
-   
+   #info-mobile {
+    margin: 0 2rem;
+
+   }
+    #info-mobile, #artist-mobile {
+        display:none;
+        position:relative;
+        flex-direction: column;
+        background-color:inherit;
+        width:100%;
+        z-index:210;
+    }
     .zoom-in{
         font-variation-settings: 'wght' 330, 'wdth' 125;
         font-size:3.3rem;
@@ -394,7 +405,10 @@ h5, .modal-text{
         width: auto;
         height: auto;
       }
-
+    .thumb-mobile {
+        width:100%;
+        padding: 0 1rem 0.5rem 0;
+    }
     .extraworks { display: none; }
     .goback {
         display:none;
@@ -698,6 +712,7 @@ button.close::before {
             line-height:8rem;
         }
         #info, #artist {
+            display:none;
             font-size: 1.6rem;
             line-height: 2rem;
             height: auto;
@@ -706,7 +721,19 @@ button.close::before {
         }
         #artist {
             width:100%;
-            
+        
+        } 
+
+        #info-mobile, #artist-mobile {
+            display:block;
+            font-size: 1.6rem;
+            line-height: 2rem;
+            height: auto;
+            max-width:100vw;
+            margin:0 0.5rem;
+        }
+        #artist-mobile {
+            width:100%;
         } 
         .scroll {
             width:100%;
